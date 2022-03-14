@@ -1,12 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Helvetica, Arial, sans-serif;
-}
 
 body::-webkit-scrollbar {
     width: 0;
@@ -33,7 +25,12 @@ body::-webkit-scrollbar {
     background: linear-gradient(-180deg, #f53d2d, #f63);
     height: 80px;
 }
-
+.sticky .header__main-search>i {
+    top: 9.5px
+}
+.sticky .header__main-search>input {
+    height: 35px;
+}
 .header__main-navbar-wrapper {
     display: flex;
     align-items: center;
@@ -281,11 +278,11 @@ body::-webkit-scrollbar {
 
 .header__main-search>input {
     width: 100%;
-    height: 35px;
+    height: 36px;
     border-radius: 2px;
     border: none;
     padding-left: 10px;
-    font-size: .9rem;
+    font-size: .85rem;
 }
 
 .header__main-search>input:focus {
@@ -295,7 +292,7 @@ body::-webkit-scrollbar {
 .header__main-search>i {
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 9px;
     font-size: 1.1rem;
     color: #fff;
     background-color: #f53d2d;

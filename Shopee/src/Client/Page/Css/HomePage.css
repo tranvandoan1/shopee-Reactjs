@@ -362,7 +362,7 @@
     list-style: none;
     display: inline-block;
     width: 196px;
-    height: 290px;
+    height: 305px;
     position: relative;
     border: 1px solid rgb(214, 214, 214);
     overflow: hidden;
@@ -499,7 +499,7 @@
     position: relative;
     border: 1px solid rgb(214, 214, 214);
     box-shadow: 0 0 1px black;
-    height: 300px;
+    height: 310px;
     overflow: hidden;
 }
 
@@ -587,7 +587,7 @@
 
 .products-title_show>ul>li>a:hover .products_name,
 .products-title_show>ul>li>a:hover .products-price {
-    transform: translateY(-80%);
+    transform: translateY(-70%);
     transition: ease-in .3s;
 }
 
@@ -597,12 +597,12 @@
 }
 
 .products-title_show>ul>li>a:hover .addToCart {
-    transform: translateY(-115%);
+    transform: translateY(-150%);
     transition: ease-in .3s;
 }
 
 .show-products>ul>li>a:hover .addToCartPro {
-    transform: translateY(-110%);
+    transform: translateY(-130%);
     transition: ease-in .3s;
 }
 

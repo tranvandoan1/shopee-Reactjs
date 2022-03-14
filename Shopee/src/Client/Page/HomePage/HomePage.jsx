@@ -2,17 +2,36 @@ import React from 'react'
 import { $ } from '../../../Unti';
 import { Footer } from '../Header/Footer';
 import { HeaderNavbar } from '../Header/HeaderNavbar';
+import "../Css/HomePage.css"
+import Slides from './Slides';
+import Categoris from './Categoris';
+import ProductSale from './ProductSale';
+import ProductHome from './ProductHome';
+import ProductTop from './ProductTop';
+const HomePage = (props) => {
 
-const HomePage = () => {
-    const HomePage = $("#linkCss")
-    var head = $("head");
-    HomePage.href = './src/Client/Page/Css/HomePage.css';
-    head.appendChild(HomePage);
   return (
-    <div>
-      <HeaderNavbar/>
-      <Footer/>
-    </div>  
+
+
+    
+    <div className="shopee__shop">
+
+      <HeaderNavbar />
+      <Slides />
+
+      <Categoris />
+      {/* <!-- baneer img --> */}
+      <div className="banner-advertisement">
+        <a href=""><img src="https://cf.shopee.vn/file/b4b3ae7cd45ce23a678d172112357793" alt=""/></a>
+      </div>
+      <ProductSale />
+      <ProductTop/>
+      <ProductHome/>
+
+
+      <Footer />
+    </div >
+
   )
 }
 
