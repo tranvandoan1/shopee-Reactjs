@@ -1,5 +1,4 @@
 import React from 'react'
-import { $ } from '../../../Unti';
 import { Footer } from '../Header/Footer';
 import { HeaderNavbar } from '../Header/HeaderNavbar';
 import "../Css/HomePage.css"
@@ -8,11 +7,8 @@ import Categoris from './Categoris';
 import ProductSale from './ProductSale';
 import ProductHome from './ProductHome';
 import ProductTop from './ProductTop';
-const HomePage = (props) => {
-
+const HomePage = () => {
   return (
-
-
     
     <div className="shopee__shop">
 

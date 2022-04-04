@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import CommodityValueAPI from '../../../API/CommodityValueAPI'
-import ProAPI from '../../../API/ProductsAPI'
-
+import ProAPI from '../../../API/ProAPI'
+import { Link } from "react-router-dom"
 const ProductTop = () => {
     const [commodityvalue, setCommodityvalue] = useState([])
-    const [products, setProduct] = useState([])
     const [productArr, setProductArr] = useState([])
 
-    console.log("1")
-    useEffect(async () => {
-        const { data: products } = await ProAPI.getAll();
-        const { data: commodityvalue } = await CommodityValueAPI.getAll();
-        setCommodityvalue(commodityvalue)
-        setProduct(products)
-    }, [])
-
     useEffect(() => {
-        const proView = products.map(pro => pro.view)
-        const proSort = proView.sort()
-        const productArr = []
-
-        proSort.map(item => {
-            products.filter(pro => (item == pro.view ? productArr.push(pro) : ""))
-        })
-        setProductArr(productArr)
+        const getData = async () => {
+            const { data: products } = await ProAPI.getAll();
+            const { data: commodityvalue } = await CommodityValueAPI.getAll();
+            const proSort = products.map(pro => pro.view).sort()
+            const productArr = []
+            proSort.map(item => products.filter(pro => (item == pro.view ? productArr.push(pro) : "")))
+            setProductArr(productArr)
+            setCommodityvalue(commodityvalue)
+        }
+        getData()
     }, [])
+
 
     const ShowHtml = (productArr, commodityvalue) => {
         return (
@@ -36,7 +30,7 @@ const ProductTop = () => {
                 var minPrice = Math.min.apply(Math, showPrice)
                 return (
                     <li key={pro._id}>
-                        <a href="/detail/product/${pro._id}">
+                        <Link to='/detail/product/${pro._id}'>
                             <div className="imager-products">
                                 <img src={pro.cover_image} alt="" />
                             </div>
@@ -49,7 +43,7 @@ const ProductTop = () => {
                             </div>
                             <div className="addToCartPro">add to cart
                             </div>
-                        </a>
+                        </Link>
                     </li>
                 )
             })

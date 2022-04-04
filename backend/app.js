@@ -50,8 +50,6 @@ mongoose.connection.on('error', err => {
 })
 
 
-
-
 // routes
 app.use('/api', productRoutes);
 app.use('/api', categoryRoutes);

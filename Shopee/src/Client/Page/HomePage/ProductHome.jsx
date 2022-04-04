@@ -1,34 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import ProAPI from '../../../API/ProductsAPI'
+import ProAPI from '../../../API/ProAPI'
 import CommodityValueAPI from '../../../API/CommodityValueAPI'
 import { $ } from '../../../Unti'
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProduct } from '../../../reducers/Products'
 const ProductHome = () => {
     const [commodityvalue, setCommodityvalue] = useState([])
-    const [products, setProduct] = useState([])
+    const [products, setProduct] = useState([]);
+    const dispatch = useDispatch()
+    
+    const listProducts = useSelector(data => data)
 
+    console.log(listProducts);
 
     useEffect(async () => {
         const { data: products } = await ProAPI.getAll();
+        console.log(products)
         const { data: commodityvalue } = await CommodityValueAPI.getAll();
         setCommodityvalue(commodityvalue)
-        setProduct(products)
+        setProduct(products);
+        dispatch(getProduct())
     }, [])
 
     const ShowHtml = (products, commodityvalue) => {
         return (
             products.map(pro => {
-                const p = commodityvalue.filter(item => {
-                    if (item.pro_id == pro._id) {
-                        return item
-                    }
-                })
-                const showPrice = p.map(item => {
-                    return item.price
-                })
+                const p = commodityvalue.filter(item =>item.pro_id == pro._id ? item :"")
+                const showPrice = p.map(item => item.price)
                 var minPrice = Math.min.apply(Math, showPrice)
                 return (
                     <li key={pro._id}>
-                        <a href='/detail/1'>
+                        <Link to={`/detail/id=${pro._id}`}>
                             <div className="products-img"><img src={pro.cover_image} alt="" />
                             </div>
                             {
@@ -45,7 +48,7 @@ const ProductHome = () => {
                             </div>
                             <div className="addToCart"><span>add to
                                 cart</span></div>
-                        </a>
+                        </Link>
                     </li>
                 )
             })

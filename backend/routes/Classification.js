@@ -1,16 +1,16 @@
 import express from 'express';
-import { create, list, update, Id, readPhoto, read, remove } from '../controllers/Classification';
+import { create, list, update, Id, readPhoto, read, remove } from '../controllers/classification';
 const router = express.Router();
 
-router.post('/classification', create);
+router.post('/classify', create);
 
-router.get('/classification', list);
-router.get('/classification/:Id', read);
+router.get('/classify', list);
+router.get('/classify/:Id', read);
 // router.get('/product/photo/:productId', readPhoto);
 
-router.put('/classification/:Id', update);
+router.put('/classify/:Id', update);
 
-router.delete('/classification/:Id', remove);
+router.delete('/classify/:Id', remove);
 
 router.param('Id', Id);
 
