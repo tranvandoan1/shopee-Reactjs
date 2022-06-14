@@ -15,14 +15,14 @@ const HomePage = () => {
       <HeaderNavbar />
       <Slides />
 
-      <Categoris />
+      {/* <Categoris /> */}
       {/* <!-- baneer img --> */}
       <div className="banner-advertisement">
         <a href=""><img src="https://cf.shopee.vn/file/b4b3ae7cd45ce23a678d172112357793" alt=""/></a>
       </div>
-      <ProductSale />
+      {/* <ProductSale />
       <ProductTop/>
-      <ProductHome/>
+      <ProductHome/> */}
 
 
       <Footer />
